@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   Info.plist
+   Bank
+
+   Created by Suelio Sousa on 05/04/25.
+   Copyright (c) 2025 ___ORGANIZATIONNAME___. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>UIAppFonts</key>
+            <array>
+                <string>Inter-Bold.ttf</string>
+                <string>Inter-Medium.ttf</string>
+                <string>Inter-Regular.ttf</string>
+                <string>Inter-SemiBold.ttf</string>
+            </array>
+    </dict>
+</plist>

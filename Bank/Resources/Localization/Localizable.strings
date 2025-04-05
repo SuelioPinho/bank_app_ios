@@ -1,0 +1,5 @@
+//Components
+"email" = "Email";
+"email_placeholder" = "Digite seu e-mail";
+"password" = "Senha";
+"password_placeholder" = "Digite sua senha";

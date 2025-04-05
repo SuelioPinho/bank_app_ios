@@ -1,0 +1,24 @@
+strings:
+  inputs:
+    - Resources/Localization
+  outputs:
+    - templateName: structured-swift5
+      output: Generated/Strings+Generated.swift
+
+xcassets:
+  inputs:
+    - Resources/Assets/Colors.xcassets
+    - Resources/Assets/Images.xcassets
+  outputs:
+    - templateName: swift5
+      output: Generated/Assets+Generated.swift
+      params:
+        forceProvidesNamespaces: true
+        platform: iOS
+        
+fonts:
+  inputs:
+    - Resources/Fonts
+  outputs:
+    - templateName: swift5
+      output: Generated/Fonts+Generated.swift
