@@ -1,14 +1,14 @@
 strings:
   inputs:
-    - Resources/Localization
+    - Localization
   outputs:
     - templateName: structured-swift5
       output: Generated/Strings+Generated.swift
 
 xcassets:
   inputs:
-    - Resources/Assets/Colors.xcassets
-    - Resources/Assets/Images.xcassets
+    - Assets/Colors.xcassets
+    - Assets/Images.xcassets
   outputs:
     - templateName: swift5
       output: Generated/Assets+Generated.swift
@@ -18,7 +18,7 @@ xcassets:
         
 fonts:
   inputs:
-    - Resources/Fonts
+    - Fonts
   outputs:
     - templateName: swift5
       output: Generated/Fonts+Generated.swift

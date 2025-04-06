@@ -8,9 +8,7 @@
 import SwiftUI
 
 enum TextFieldType {
-    case `default`
-    case email
-    case password
+    case `default`, email, password
 }
 
 struct CustomTextField: View {
@@ -30,72 +28,82 @@ struct CustomTextField: View {
                 .padding(.bottom, 4)
             
             ZStack(alignment: .leading) {
-                if !isFocused && text.isEmpty {
-                    Text(placeholder)
-                        .font(Fonts.regular(size: 16))
-                        .foregroundColor(Asset.Colors.placeholderColor.swiftUIColor)
-                        .onTapGesture {
-                            isFocused = true
-                        }
-                }
+                textFieldView
+                    .focused($isFocused)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Asset.Colors.textFieldColor.swiftUIColor)
+                    .cornerRadius(8)
+                    .frame(height: 48)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(isFocused ? Asset.Colors.primaryColor.swiftUIColor : Asset.Colors.textFieldColor.swiftUIColor, lineWidth: 2)
+                    )
                 
-                HStack {
-                    if type == .password {
-                        if isSecure {
-                            SecureField("", text: $text)
-                                .textFieldStyle(PlainTextFieldStyle())
-                                .focused($isFocused)
-                                .foregroundStyle(.white)
-                                .accentColor(.white)
-                                .font(Fonts.semiBold(size: 16))
-                                .textInputAutocapitalization(.never)
-                                .autocorrectionDisabled(true)
-                                .disableAutocorrection(true)
-                                .frame(maxWidth: .infinity)
-                        } else {
-                            TextField("", text: $text)
-                                .textFieldStyle(PlainTextFieldStyle())
-                                .focused($isFocused)
-                                .foregroundStyle(.white)
-                                .accentColor(.white)
-                                .font(Fonts.semiBold(size: 16))
-                                .autocorrectionDisabled(true)
-                                .disableAutocorrection(true)
-                        }
-                    } else {
-                        TextField("", text: $text)
-                            .textFieldStyle(PlainTextFieldStyle())
-                            .focused($isFocused)
-                            .foregroundStyle(.white)
-                            .accentColor(.white)
-                            .keyboardType(type == .email ? .emailAddress : .default)
-                            .font(Fonts.semiBold(size: 16))
-                            .textInputAutocapitalization(.never)
-                            .autocorrectionDisabled(true)
-                            .disableAutocorrection(true)
-                    }
-                    
-                    if type == .password {
-                        Button(action: {
-                            isSecure.toggle()
-                        }) {
-                            Image(systemName: isSecure ? "eye.slash" : "eye")
-                                .foregroundColor(.gray)
-                        }
-                        .padding(.leading, 8)
-                    }
+                if !isFocused && text.isEmpty {
+                    placeholderText
+                        .onTapGesture { isFocused = true }
                 }
             }
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(Asset.Colors.textFieldColor.swiftUIColor)
-            .cornerRadius(8)
-            .frame(height: 48)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(isFocused ? Asset.Colors.primaryColor.swiftUIColor: Asset.Colors.textFieldColor.swiftUIColor, lineWidth: 2)
-            )
         }
+    }
+    
+    private var placeholderText: some View {
+        Text(placeholder)
+            .font(Fonts.regular(size: 16))
+            .foregroundColor(Asset.Colors.placeholderColor.swiftUIColor)
+            .padding(.leading, 16)
+    }
+    
+    private var textFieldView: some View {
+        HStack {
+            if type == .password {
+                secureTextField
+            } else {
+                normalTextField
+            }
+            
+            if type == .password {
+                toggleSecureVisibilityButton
+            }
+        }
+    }
+    
+    private var secureTextField: some View {
+        Group {
+            if isSecure {
+                SecureField("", text: $text)
+            } else {
+                TextField("", text: $text)
+            }
+        }
+        .textFieldStyle(PlainTextFieldStyle())
+        .foregroundColor(.white)
+        .accentColor(.white)
+        .font(Fonts.semiBold(size: 16))
+        .textInputAutocapitalization(.never)
+        .autocorrectionDisabled(true)
+        .disableAutocorrection(true)
+    }
+    
+    private var normalTextField: some View {
+        TextField("", text: $text)
+            .textFieldStyle(PlainTextFieldStyle())
+            .foregroundColor(.white)
+            .accentColor(.white)
+            .keyboardType(type == .email ? .emailAddress : .default)
+            .font(Fonts.semiBold(size: 16))
+            .textInputAutocapitalization(.never)
+            .autocorrectionDisabled(true)
+            .disableAutocorrection(true)
+    }
+    
+    private var toggleSecureVisibilityButton: some View {
+        Button(action: { isSecure.toggle() }) {
+            Image(systemName: isSecure ? "eye.slash" : "eye")
+                .foregroundColor(.gray)
+        }
+        .padding(.leading, 8)
     }
 }
 
@@ -117,7 +125,7 @@ struct CustomTextField: View {
                 .padding(.horizontal, 20)
                 CustomTextField(title: "Default",
                                 type: .default,
-                                placeholder: "Digite seu default", text: $defaultValue)
+                                placeholder: "Enter default", text: $defaultValue)
                 .padding(.horizontal, 20)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -127,3 +135,4 @@ struct CustomTextField: View {
 
     return PreviewWrapper()
 }
+

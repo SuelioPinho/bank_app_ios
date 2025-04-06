@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject private var viewModel = LoginViewModel()
+    @InjectedViewModel private var viewModel: LoginViewModel
+    @Binding var navigationPath: [Route.Auth]
     
     var body: some View {
         BaseView {
@@ -58,7 +59,7 @@ struct LoginView: View {
     
     private var forgotPasswordButton: some View {
         Button(action: {
-            //            output?.goToForgotPassword()
+            navigationPath.append(.forgotPassword)
         }) {
             Text(L10n.loginForgotYourPassword)
                 .foregroundColor(Asset.Colors.primaryColor.swiftUIColor)
@@ -75,12 +76,12 @@ struct LoginView: View {
                      textColor: .white) {
             viewModel.login()
         }
-                     .padding(.top, 16)
+        .padding(.top, 16)
     }
     
     private var signUpButton: some View {
         Button(action: {
-            //            output?.goToSignUp()
+            navigationPath.append(.signUp)
         }) {
             Text(viewModel.createButtonTitle)
                 .foregroundStyle(.white)
@@ -90,5 +91,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(navigationPath: .constant([]))
+        .environmentObject(AppState())
 }

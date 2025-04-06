@@ -10,14 +10,23 @@ import Combine
 import Security
 
 class AppState: ObservableObject {
-    @Published var token: String? = KeychainHelper.shared.get(forKey: "authToken") {
-        didSet {
-            if let token = token {
-                KeychainHelper.shared.set(token, forKey: "authToken")
-            } else {
-                KeychainHelper.shared.remove(forKey: "authToken")
+    @Published var token: String?
+
+    private var cancellables = Set<AnyCancellable>()
+
+    init() {
+        token = KeychainHelper.shared.get(forKey: "authToken")
+
+        $token
+            .dropFirst() // evita execução imediata ao setar no init
+            .sink { token in
+                if let token = token {
+                    KeychainHelper.shared.set(token, forKey: "authToken")
+                } else {
+                    KeychainHelper.shared.remove(forKey: "authToken")
+                }
             }
-        }
+            .store(in: &cancellables)
     }
 
     var isLoggedIn: Bool {

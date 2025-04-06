@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import Swinject
 
 @main
 struct BankApp: App {
-    @StateObject private var appState = AppState()
+    let appState = AppState()
     
     init() {
+        AppEnvironment.shared.start(with: appState)
+        
         // NavigationBar Global Settings
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
