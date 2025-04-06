@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum Fonts {
+    
     static func regular(size: CGFloat) -> SwiftUI.Font {
         return FontFamily.Inter.regular.swiftUIFont(size: size)
     }

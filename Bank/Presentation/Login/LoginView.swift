@@ -7,12 +7,85 @@
 
 import SwiftUI
 
-struct LoginView : View {
+struct LoginView: View {
+    @StateObject private var viewModel = LoginViewModel()
+    
     var body: some View {
-        VStack {
-            Text("Hello, world!")
+        BaseView {
+            VStack {
+                logoImage
+                
+                Spacer()
+                    .frame(height: UIScreen.screenHeight * 0.05)
+                
+                inputFields
+                
+                forgotPasswordButton
+                
+                signInButton
+                
+                Spacer()
+                
+                signUpButton
+            }
+            .padding(.horizontal, 20)
         }
-        .padding()
+    }
+    
+    // MARK: - Subviews
+    
+    private var logoImage: some View {
+        Image(Asset.Images.logo.name)
+            .resizable()
+            .scaledToFit()
+            .frame(height: 70)
+            .padding(.top, 40)
+    }
+    
+    private var inputFields: some View {
+        VStack {
+            CustomTextField(title: L10n.email,
+                            type: .email,
+                            placeholder: L10n.emailPlaceholder, text: $viewModel.email)
+            
+            CustomTextField(title: L10n.password,
+                            type: .password,
+                            placeholder: L10n.passwordPlaceholder, text: $viewModel.password)
+            .padding(.top, 16)
+        }
+        .padding(.top, 70)
+    }
+    
+    private var forgotPasswordButton: some View {
+        Button(action: {
+            //            output?.goToForgotPassword()
+        }) {
+            Text(L10n.loginForgotYourPassword)
+                .foregroundColor(Asset.Colors.primaryColor.swiftUIColor)
+                .font(Fonts.semiBold(size: 14))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 16)
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+    
+    private var signInButton: some View {
+        CustomButton(text: L10n.loginButton,
+                     backgroundColor: Asset.Colors.primaryColor.swiftUIColor,
+                     textColor: .white) {
+            viewModel.login()
+        }
+                     .padding(.top, 16)
+    }
+    
+    private var signUpButton: some View {
+        Button(action: {
+            //            output?.goToSignUp()
+        }) {
+            Text(viewModel.createButtonTitle)
+                .foregroundStyle(.white)
+        }
+        .padding(.bottom, 20)
     }
 }
 

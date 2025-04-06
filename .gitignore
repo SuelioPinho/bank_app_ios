@@ -37,6 +37,7 @@ Carthage/Build/
 *.swp
 *.swo
 *.DS_Store
+ .DS_Store
 
 # Archive files
 *.xcarchive

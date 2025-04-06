@@ -14,6 +14,16 @@ internal enum L10n {
   internal static let email = L10n.tr("Localizable", "email", fallback: "Email")
   /// Digite seu e-mail
   internal static let emailPlaceholder = L10n.tr("Localizable", "email_placeholder", fallback: "Digite seu e-mail")
+  /// Login
+  internal static let loginButton = L10n.tr("Localizable", "login_button", fallback: "Login")
+  /// Criar
+  internal static let loginCreateAccount = L10n.tr("Localizable", "login_create_account", fallback: "Criar")
+  /// Não possui uma conta?
+  internal static let loginDontHaveAnAccount = L10n.tr("Localizable", "login_dont_have_an_account", fallback: "Não possui uma conta?")
+  /// Esqueceu a senha?
+  internal static let loginForgotYourPassword = L10n.tr("Localizable", "login_forgot_your_password", fallback: "Esqueceu a senha?")
+  /// Boas-vindas!
+  internal static let loginTitle = L10n.tr("Localizable", "login_title", fallback: "Boas-vindas!")
   /// Senha
   internal static let password = L10n.tr("Localizable", "password", fallback: "Senha")
   /// Digite sua senha
