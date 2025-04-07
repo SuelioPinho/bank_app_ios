@@ -10,12 +10,12 @@ import Foundation
 struct URLRequestBuilder {
     static func makeRequest(
         url: URL,
-        method: String,
+        method: HTTPMethod,
         body: Encodable? = nil,
         headers: [String: String] = ["Content-Type": "application/json"]
     ) -> URLRequest {
         var request = URLRequest(url: url)
-        request.httpMethod = method
+        request.httpMethod = method.rawValue
 
         headers.forEach { key, value in
             request.addValue(value, forHTTPHeaderField: key)

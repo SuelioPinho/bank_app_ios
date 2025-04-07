@@ -16,7 +16,7 @@ class AuthRepository: AuthRepositoryProtocol {
         let body = LoginRequest(email: email, password: password)
         let request = URLRequestBuilder.makeRequest(
             url: APIEndpoint.Auth.login,
-            method: "POST",
+            method: .post,
             body: body
         )
 
