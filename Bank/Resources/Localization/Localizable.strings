@@ -1,8 +1,10 @@
 //Components
 "email" = "Email";
 "email_placeholder" = "Digite seu e-mail";
+"invalid_email" = "Email inválido";
 "password" = "Senha";
 "password_placeholder" = "Digite sua senha";
+"required_field" = "Campo obrigatório";
 
 //SignIn
 "login_title" = "Boas-vindas!";

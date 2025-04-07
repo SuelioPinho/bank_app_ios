@@ -14,6 +14,8 @@ internal enum L10n {
   internal static let email = L10n.tr("Localizable", "email", fallback: "Email")
   /// Digite seu e-mail
   internal static let emailPlaceholder = L10n.tr("Localizable", "email_placeholder", fallback: "Digite seu e-mail")
+  /// Email inválido
+  internal static let invalidEmail = L10n.tr("Localizable", "invalid_email", fallback: "Email inválido")
   /// Login
   internal static let loginButton = L10n.tr("Localizable", "login_button", fallback: "Login")
   /// Criar
@@ -28,6 +30,8 @@ internal enum L10n {
   internal static let password = L10n.tr("Localizable", "password", fallback: "Senha")
   /// Digite sua senha
   internal static let passwordPlaceholder = L10n.tr("Localizable", "password_placeholder", fallback: "Digite sua senha")
+  /// Campo obrigatório
+  internal static let requiredField = L10n.tr("Localizable", "required_field", fallback: "Campo obrigatório")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

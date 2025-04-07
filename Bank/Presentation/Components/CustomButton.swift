@@ -24,26 +24,3 @@ struct CustomButton: View {
         }
     }
 }
-
-#Preview {
-    VStack(spacing: 20) {
-        CustomButton(
-            text: "Enviar",
-            backgroundColor: Color.blue,
-            textColor: Color.white,
-            action: {
-                print("Botão Enviar clicado")
-            }
-        )
-        
-        CustomButton(
-            text: "Carregar",
-            backgroundColor: Color.green,
-            textColor: Color.white,
-            action: {
-                print("Botão Carregar clicado")
-            }
-        )
-    }
-    .padding()
-}

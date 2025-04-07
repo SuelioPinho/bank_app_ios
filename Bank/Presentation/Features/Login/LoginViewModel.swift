@@ -8,8 +8,18 @@
 import Foundation
 
 class LoginViewModel: ObservableObject {
-    @Published var email: String = ""
-    @Published var password: String = ""
+    @Published var email: String = "" {
+        didSet {
+            clearEmailError()
+        }
+    }
+    @Published var password: String = "" {
+        didSet {
+            clearPasswordError()
+        }
+    }
+    @Published var emailErrorMessage: String?
+    @Published var passwordErrorMessage: String?
     @Published var errorMessage: String?
     @Published var isLoading: Bool = false
     @Published var createButtonTitle: AttributedString = AttributedString("")
@@ -36,7 +46,26 @@ class LoginViewModel: ObservableObject {
         self.createButtonTitle = fullString.addBoldText(boldPartsOfString: boldParts, font: font, boldFont: font, boldColor: boldColor)
     }
     
+    func validateFields() -> Bool {
+        emailErrorMessage = FieldValidator.validateEmail(email)
+        passwordErrorMessage = FieldValidator.validateNotEmpty(password)
+        
+        return emailErrorMessage == nil && passwordErrorMessage == nil
+    }
+    
+    func clearEmailError() {
+        emailErrorMessage = nil
+    }
+    
+    func clearPasswordError() {
+        passwordErrorMessage = nil
+    }
+    
     func login() {
+        if !validateFields() {
+            return
+        }
+        
         isLoading = true
         errorMessage = nil
         

@@ -18,6 +18,7 @@ struct CustomTextField: View {
     
     @FocusState private var isFocused: Bool
     @Binding var text: String
+    @Binding var error: String?
     @State private var isSecure: Bool = true
     
     var body: some View {
@@ -45,6 +46,10 @@ struct CustomTextField: View {
                         .onTapGesture { isFocused = true }
                 }
             }
+            
+            if (error != nil) {
+                errorText
+            }
         }
     }
     
@@ -53,6 +58,13 @@ struct CustomTextField: View {
             .font(Fonts.regular(size: 16))
             .foregroundColor(Asset.Colors.placeholderColor.swiftUIColor)
             .padding(.leading, 16)
+    }
+    
+    private var errorText: some View {
+        Text(error ?? "")
+            .foregroundStyle(.red)
+            .font(Fonts.medium(size: 12))
+            .padding(.top, 1)
     }
     
     private var textFieldView: some View {
@@ -112,27 +124,32 @@ struct CustomTextField: View {
         @State private var email: String = ""
         @State private var password: String = ""
         @State private var defaultValue: String = ""
-
+        @State private var emailError: String? = L10n.requiredField
+        @State private var error: String?
+        
         var body: some View {
             VStack(spacing: 20) {
                 CustomTextField(title: L10n.email,
                                 type: .email,
-                                placeholder: L10n.emailPlaceholder, text: $email)
+                                placeholder: L10n.emailPlaceholder, text: $email,
+                                error: $emailError)
                 .padding(.horizontal, 20)
                 CustomTextField(title: L10n.password,
                                 type: .password,
-                                placeholder: L10n.passwordPlaceholder, text: $password)
+                                placeholder: L10n.passwordPlaceholder, text: $password,
+                                error: $error)
                 .padding(.horizontal, 20)
                 CustomTextField(title: "Default",
                                 type: .default,
-                                placeholder: "Enter default", text: $defaultValue)
+                                placeholder: "Enter default", text: $defaultValue,
+                                error: $error)
                 .padding(.horizontal, 20)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Asset.Colors.backgroundColor.swiftUIColor)
         }
     }
-
+    
     return PreviewWrapper()
 }
 

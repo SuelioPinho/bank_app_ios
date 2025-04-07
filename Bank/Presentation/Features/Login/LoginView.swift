@@ -49,14 +49,16 @@ struct LoginView: View {
                 title: L10n.email,
                 type: .email,
                 placeholder: L10n.emailPlaceholder,
-                text: $viewModel.email
+                text: $viewModel.email,
+                error: $viewModel.emailErrorMessage
             )
             
             CustomTextField(
                 title: L10n.password,
                 type: .password,
                 placeholder: L10n.passwordPlaceholder,
-                text: $viewModel.password
+                text: $viewModel.password,
+                error: $viewModel.passwordErrorMessage
             )
             .padding(.top, 16)
         }
