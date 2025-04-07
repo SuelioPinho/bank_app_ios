@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BCB12312DA1EB4E003C8113 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 3BCB12302DA1EB4E003C8113 /* Swinject */; };
-		3BEECCC32DA1C93200BC9B5D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3BEECCC22DA1C93200BC9B5D /* Alamofire */; };
+		3BCB133E2DA354E2003C8113 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3BCB133D2DA354E2003C8113 /* Alamofire */; };
+		3BCB13412DA3551A003C8113 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 3BCB13402DA3551A003C8113 /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BEECCC32DA1C93200BC9B5D /* Alamofire in Frameworks */,
-				3BCB12312DA1EB4E003C8113 /* Swinject in Frameworks */,
+				3BCB133E2DA354E2003C8113 /* Alamofire in Frameworks */,
+				3BCB13412DA3551A003C8113 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,9 +144,8 @@
 			);
 			name = Bank;
 			packageProductDependencies = (
-				3BEECCC22DA1C93200BC9B5D /* Alamofire */,
-				3BEECCC42DA1C93200BC9B5D /* AlamofireDynamic */,
-				3BCB12302DA1EB4E003C8113 /* Swinject */,
+				3BCB133D2DA354E2003C8113 /* Alamofire */,
+				3BCB13402DA3551A003C8113 /* Swinject */,
 			);
 			productName = Bank;
 			productReference = 3B702E4E2DA193BA00346DAA /* Bank.app */;
@@ -232,8 +231,8 @@
 			mainGroup = 3B702E452DA193BA00346DAA;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				3BEECCC12DA1C93200BC9B5D /* XCRemoteSwiftPackageReference "Alamofire" */,
-				3BCB122F2DA1EB4E003C8113 /* XCRemoteSwiftPackageReference "Swinject" */,
+				3BCB133C2DA354E2003C8113 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3BCB133F2DA3551A003C8113 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3B702E4F2DA193BA00346DAA /* Products */;
@@ -647,15 +646,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3BCB122F2DA1EB4E003C8113 /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.1;
-			};
-		};
-		3BEECCC12DA1C93200BC9B5D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		3BCB133C2DA354E2003C8113 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -663,23 +654,26 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		3BCB133F2DA3551A003C8113 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3BCB12302DA1EB4E003C8113 /* Swinject */ = {
+		3BCB133D2DA354E2003C8113 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3BCB122F2DA1EB4E003C8113 /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
-		3BEECCC22DA1C93200BC9B5D /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3BEECCC12DA1C93200BC9B5D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 3BCB133C2DA354E2003C8113 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		3BEECCC42DA1C93200BC9B5D /* AlamofireDynamic */ = {
+		3BCB13402DA3551A003C8113 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3BEECCC12DA1C93200BC9B5D /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
+			package = 3BCB133F2DA3551A003C8113 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

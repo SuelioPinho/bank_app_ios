@@ -1,0 +1,70 @@
+# Regras que você NÃO quer que incomodem
+disabled_rules:
+  - trailing_whitespace
+  - line_length
+  - identifier_name
+  - type_name
+  - force_cast
+  - force_unwrapping
+  - file_length
+  - function_body_length
+  - type_body_length
+  - nesting
+
+# Regras extras que você quer ativar (boas práticas)
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - fatal_error_message
+  - force_try
+  - multiline_arguments_brackets
+  - sorted_first_last
+  - unused_declaration
+
+# Diretórios a analisar
+included:
+  - Bank
+  - BankTests
+
+# Ignorar esses diretórios
+excluded:
+  - Pods
+  - Carthage
+  - BankUITests
+  - Tools
+  - build
+  - DerivedData
+
+# Configurações de regras específicas
+line_length:
+  warning: 120
+  error: 200
+  ignores_comments: true
+  ignores_urls: true
+
+type_body_length:
+  warning: 300
+  error: 500
+
+file_length:
+  warning: 400
+  error: 800
+
+function_body_length:
+  warning: 50
+  error: 100
+
+cyclomatic_complexity:
+  warning: 10
+  error: 20
+
+identifier_name:
+  min_length: 3
+  max_length: 40
+  excluded:
+    - id
+    - x
+    - y
+    - z
+    - i
+    - j

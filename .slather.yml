@@ -1,8 +1,0 @@
-# .slather.yml
-xcodeproj: Bank.xcodeproj
-scheme: Bank
-output_directory: slather-report
-coverage_service: html
-ignore:
-  - "**/Generated/*"
-  - "**/Mocks/*"
