@@ -18,7 +18,7 @@ class AppState: ObservableObject {
         token = KeychainHelper.shared.get(forKey: "authToken")
 
         $token
-            .dropFirst() // evita execução imediata ao setar no init
+            .dropFirst() // avoid immediate execution when setting in init
             .sink { token in
                 if let token = token {
                     KeychainHelper.shared.set(token, forKey: "authToken")
