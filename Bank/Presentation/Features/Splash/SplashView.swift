@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SplashView : View {
+struct SplashView: View {
     private var logoSize: CGFloat = 300
     var body: some View {
         BaseView {

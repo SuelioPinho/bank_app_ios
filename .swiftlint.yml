@@ -34,6 +34,7 @@ excluded:
   - Tools
   - build
   - DerivedData
+  - Bank/Resources/Generated
 
 # Configurações de regras específicas
 line_length:

@@ -45,13 +45,19 @@ struct LoginView: View {
     
     private var inputFields: some View {
         VStack {
-            CustomTextField(title: L10n.email,
-                            type: .email,
-                            placeholder: L10n.emailPlaceholder, text: $viewModel.email)
+            CustomTextField(
+                title: L10n.email,
+                type: .email,
+                placeholder: L10n.emailPlaceholder,
+                text: $viewModel.email
+            )
             
-            CustomTextField(title: L10n.password,
-                            type: .password,
-                            placeholder: L10n.passwordPlaceholder, text: $viewModel.password)
+            CustomTextField(
+                title: L10n.password,
+                type: .password,
+                placeholder: L10n.passwordPlaceholder,
+                text: $viewModel.password
+            )
             .padding(.top, 16)
         }
         .padding(.top, 70)
@@ -71,11 +77,14 @@ struct LoginView: View {
     }
     
     private var signInButton: some View {
-        CustomButton(text: L10n.loginButton,
-                     backgroundColor: Asset.Colors.primaryColor.swiftUIColor,
-                     textColor: .white) {
-            viewModel.login()
-        }
+        CustomButton(
+            text: L10n.loginButton,
+            backgroundColor: Asset.Colors.primaryColor.swiftUIColor,
+            textColor: .white,
+            action: {
+                viewModel.login()
+            }
+        )
         .padding(.top, 16)
     }
     

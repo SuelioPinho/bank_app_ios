@@ -430,6 +430,8 @@
 		};
 		3B702E742DA193BD00346DAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3B702E502DA193BA00346DAA /* Bank */;
+			baseConfigurationReferenceRelativePath = Core/Config/Enviroments/Dev.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -473,6 +475,8 @@
 		};
 		3B702E752DA193BD00346DAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3B702E502DA193BA00346DAA /* Bank */;
+			baseConfigurationReferenceRelativePath = Core/Config/Enviroments/Prod.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -516,6 +520,8 @@
 		};
 		3B702E772DA193BD00346DAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3B702E502DA193BA00346DAA /* Bank */;
+			baseConfigurationReferenceRelativePath = Core/Config/Enviroments/Dev.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +545,8 @@
 		};
 		3B702E782DA193BD00346DAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3B702E502DA193BA00346DAA /* Bank */;
+			baseConfigurationReferenceRelativePath = Core/Config/Enviroments/Prod.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -562,6 +570,8 @@
 		};
 		3B702E7A2DA193BD00346DAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3B702E502DA193BA00346DAA /* Bank */;
+			baseConfigurationReferenceRelativePath = Core/Config/Enviroments/Dev.xcconfig;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -584,6 +594,8 @@
 		};
 		3B702E7B2DA193BD00346DAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 3B702E502DA193BA00346DAA /* Bank */;
+			baseConfigurationReferenceRelativePath = Core/Config/Enviroments/Prod.xcconfig;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
