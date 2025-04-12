@@ -8,11 +8,14 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: macos-13
+    runs-on: macos-14
 
     steps:
       - name: 🔄 Checkout repository
         uses: actions/checkout@v3
+
+      - name: ⚙️ Select Xcode version 16.2
+        run: sudo xcode-select -s /Applications/Xcode_16.2.app
 
       - name: 🧰 Install dependencies
         run: brew install swiftlint
